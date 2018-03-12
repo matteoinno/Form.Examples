@@ -1,0 +1,34 @@
+﻿@model Form.Examples.Models.ExampleThreeViewModel
+
+@{
+    ViewBag.Title = "ExampleThree";
+}
+
+<h2>ExampleThree</h2>
+
+@using (Html.BeginForm("ExampleThree","Examples", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ExampleThreeViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.File, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.File, new { type="File", @class="form-control"})
+                @Html.ValidationMessageFor(m => m.File)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

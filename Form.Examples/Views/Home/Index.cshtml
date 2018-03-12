@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Form examples</h1>
+    <h2>By: Matteo Innocenti (<a href="mailto:minnocenti87@gmail.com">minnocenti87@gmail.com</a>)</h2>
+    <p class="lead">This project show various implementations of forms. Every implementation is fully documented and commented step by step. You can reach the examples from the navigation bar and from the links below.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Example one</h2>
+        <p>
+            Subscription form mockup.
+        </p>
+        <div class="list-group">
+            @Html.ActionLink("No Validation Summary", "ExampleOne", "Examples", null, new { @title = "No Validation Summary", @class = "list-group-item list-group-item-action" })
+            @Html.ActionLink("Validation Summary", "ExampleOneB", "Examples", null, new { @title = "Validation Summary)", @class = "list-group-item list-group-item-action" })
+            @Html.ActionLink("Highlight input fields - RENDERED", "ExampleOneC", "Examples", null, new { @title = "Highlight input fields - RENDERED", @class = "list-group-item list-group-item-action" })
+            @Html.ActionLink("Highlight input fields - Javascript", "ExampleOneD", "Examples", null, new { @title = "Highlight input fields - Javascript", @class = "list-group-item list-group-item-action" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Example Two</h2>
+        <p>
+            Dialog form mockup.
+        </p>
+        <div class="list-group">
+            @Html.ActionLink("Insert subscriber dialog", "ExampleTwo", "Examples", null, new { @title = "Insert subscriber dialog", @class = "list-group-item list-group-item-action" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Example Three</h2>
+        <p>
+            Form with import file.
+        </p>
+        <div class="list-group">
+            @Html.ActionLink("Import file", "ExampleThree", "Examples", null, new { @title = "Import file", @class = "list-group-item list-group-item-action" })
+        </div>
+    </div>
+</div>

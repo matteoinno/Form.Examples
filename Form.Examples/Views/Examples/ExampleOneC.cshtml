@@ -1,0 +1,249 @@
+﻿@model Form.Examples.Models.ExampleOneViewModel
+
+@{
+    ViewBag.Title = "Example One (highlight input fields)";
+}
+
+<h2>Highlight input fields - RENDERED</h2>
+
+
+@using (Html.BeginForm("ExampleOne", "Examples", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>This is a subscription form mockup.</h4>
+        <h4>The model contains custom data annotations to check the value of:</h4>
+        <ul>
+            <li>Birthday</li>
+            <li>Privacy</li>
+            <li>Release info</li>
+        </ul>
+        <h4>These data annotations can be found in the ExampleOneViewModel class.</h4>
+        <h4>The ViewData is used to highlight the input fields by view rendering</h4>
+        <hr />
+        <!--The Validation Summary can show the model state errors in a list. To show these model errors set the first parameter of ValidationSummary as false.-->
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <!--Before is rendered, ViewData is checked for any errors-->
+        <!--The ViewData.ModelState is necessary to avoid exception on the render.-->
+        <!--The Any() allows to check if there is any errors involving the field.-->
+        @if (ViewData.ModelState["Email"] != null && ViewData.ModelState["Email"].Errors.Any())
+        {
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        @if (ViewData.ModelState["VerifyEmail"] != null && ViewData.ModelState["VerifyEmail"].Errors.Any())
+        {
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.VerifyEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VerifyEmail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.VerifyEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.VerifyEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VerifyEmail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.VerifyEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        @if (ViewData.ModelState["FirstName"] != null && ViewData.ModelState["FirstName"].Errors.Any())
+        {
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        @if (ViewData.ModelState["LastName"] != null && ViewData.ModelState["LastName"].Errors.Any())
+        {
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        @if (ViewData.ModelState["Birthday"] != null && ViewData.ModelState["Birthday"].Errors.Any())
+        {
+            <!--For the birthday is used the date field, that allows to insert a date value by a datepicker. -->
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <!--For the birthday is used the date field, that allows to insert a date value by a datepicker. -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        @if (ViewData.ModelState["ZipCode"] != null && ViewData.ModelState["ZipCode"].Errors.Any())
+        {
+            <!--The zipcode field needs a number value, but instead of using a number field, I use a Regex data annotation.-->
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        <!--The mobile phone field uses a regex to validate the number. The mobile phone is normalized using a javascript that can be found in the example_one.js-->
+        @if (ViewData.ModelState["MobilePhone"] != null && ViewData.ModelState["MobilePhone"].Errors.Any())
+        {
+        
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.MobilePhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MobilePhone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MobilePhone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.MobilePhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MobilePhone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MobilePhone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        @if (ViewData.ModelState["Privacy"] != null && ViewData.ModelState["Privacy"].Errors.Any())
+        {
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.Privacy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Privacy)
+                        @Html.ValidationMessageFor(model => model.Privacy, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Privacy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Privacy)
+                        @Html.ValidationMessageFor(model => model.Privacy, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        @if (ViewData.ModelState["ReleaseInfo"] != null && ViewData.ModelState["ReleaseInfo"].Errors.Any())
+        {
+            <div class="form-group has-error">
+                @Html.LabelFor(model => model.ReleaseInfo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ReleaseInfo)
+                        @Html.ValidationMessageFor(model => model.ReleaseInfo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ReleaseInfo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ReleaseInfo)
+                        @Html.ValidationMessageFor(model => model.ReleaseInfo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Subscribe" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>
+
+<!--For this example the jqueryval bundle is not included.-->
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/example_one.js"></script>
+}

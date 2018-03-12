@@ -1,0 +1,108 @@
+﻿@model Form.Examples.Models.ExampleTwoViewModel
+
+@{
+    ViewBag.Title = "Example Two";
+}
+
+<h2>Example Two</h2>
+<ol>
+    <li>The form is loaded inside a modal form.</li>
+    <li>The form is submitted from the modal.</li>
+    <li>If the Modal State is not valid, the controller returns the view with the form.</li>
+    <li>If the insert operation is successful, the controller returns a JSON message containing OK.</li>
+    <li>If the insert operation fails, the controller returns a JSON message containing KO.</li>
+    <li>The javascript will manage the form submit and the return data from it.</li>
+</ol>
+<hr />
+<!-- Button trigger modal -->
+<div class="row">
+    <div class="col-md-12">
+        <!--The OpenFormModal() loads the form and open the exampleModal modal dialog.-->
+        <button type="button" class="btn btn-primary" data-toggle="modal" onclick="OpenFormModal()">
+            Launch demo modal
+        </button>
+    </div>
+</div>
+<!-- Modal that will load the insert form -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insert subscription form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="insert-dialog-form-container">
+                <!--The form will be load here.-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="SubmitForm()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model shown during the import operation in the business layer. It show a loading gif.-->
+<div class="modal fade" id="waitingModal" tabindex="-1" role="dialog" aria-labelledby="waitingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Loading, please</h5>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="~/Content/img/Spinner-1s-200px.gif" alt="loading" />
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model shown during the import operation in the business layer. It show a loading gif.-->
+<div class="modal fade alert alert-danger" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="waitingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header alert-danger">
+                <h5 class="modal-title" id="exampleModalLabel"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;ERROR</h5>
+            </div>
+            <div class="modal-body">
+                <div class="text-left">
+                    An error occured, try later.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Table that contains the inserted data (JUST FOR COMPLETION)-->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">@Html.LabelFor(model => model.Email)</th>
+            <th scope="col">@Html.LabelFor(model => model.FirstName)</th>
+            <th scope="col">@Html.LabelFor(model => model.LastName)</th>
+            <th scope="col">@Html.LabelFor(model => model.Company)</th>
+        </tr>
+    </thead>
+    <tbody id="insert-dialog-tbody">        
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+<!--The example_two.js javascript will manage the request and the response from the form.-->
+<!--If the ModelState is not valid, the controller will return the form, and the javascript will render it inside the modal dialog.-->
+<!--If the import is successfull, the controller will return a JSON message that contains OK. The javascript will append the data in a row in the table.-->
+<!--If the import fails, the controller will catch the exception and the script will open an error modal dialog.-->
+<!--During the import operation, the javascript opens a "waiting modal": a modal that contains a loading gif.-->
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/example_two.js"></script>
+    }
