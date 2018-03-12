@@ -91,6 +91,7 @@ namespace Form.Examples.Models
     public class ExampleTwoViewModel
     {
         [Required]
+        [EmailAddress]
         [Display(ResourceType = typeof(ExampleTwo), Name = "Email")]
         public String Email { get; set; }
         [Required]

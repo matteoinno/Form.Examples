@@ -18,12 +18,12 @@
             @Html.LabelFor(m => m.File, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.File, new { type="File", @class="form-control"})
-                @Html.ValidationMessageFor(m => m.File)
+                @Html.ValidationMessageFor(m => m.File, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Import" class="btn btn-default" />
             </div>
         </div>
     </div>

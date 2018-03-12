@@ -72,6 +72,7 @@ namespace Form.Examples.Controllers
         {
             try
             {
+                //The entire ModelState is checked by data annotations. Check the class ExampleTwoViewModel for the data annotations.
                 if (ModelState.IsValid)
                 {
                     return Json("OK");
