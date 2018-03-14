@@ -139,6 +139,8 @@ namespace Form.Examples.Models
         public String DateStart { get; set; }
         public String DateEnd { get; set; }
 
+        public Dictionary<String, double> PieChart { get; set; }
+
         public void Init()
         {
             this.Invoices = new List<System.Web.Mvc.SelectListItem>();
@@ -151,6 +153,14 @@ namespace Form.Examples.Models
                 };
                 this.Invoices.Add(item);
             }
+        }
+
+        public void GetData()
+        {
+            this.PieChart = new Dictionary<String, double>();
+            this.PieChart.Add("A", 61.41);
+            this.PieChart.Add("B", 19.84);
+            this.PieChart.Add("C", 18.75);
         }
 
     }

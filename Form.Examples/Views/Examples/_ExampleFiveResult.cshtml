@@ -3,10 +3,10 @@
 @{
     Layout = null;
 }
-
+<!--The highcharts are directly included in the view. In this way, it is possible to render the data of the chart from the Model.-->
 <script type="text/javascript">
 
-    Highcharts.chart('container', {
+    Highcharts.chart('pie-container', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -14,7 +14,7 @@
             type: 'pie'
         },
         title: {
-            text: 'Title for pie chart'
+            text: 'Pie chart title'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -37,16 +37,82 @@
             colorByPoint: true,
             data: [{
                 name: 'A',
-                y: 61.41,
+                y: @Model.PieChart["A"],
                 sliced: true,
                 selected: true
             }, {
                 name: 'B',
-                y: 19.84
+                y: @Model.PieChart["B"]
             }, {
                 name: 'C',
-                y: 18.75
+                y: @Model.PieChart["C"]
             }]
+        }]
+    });
+
+    Highcharts.chart('column-container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Column chart title'
+        },
+        subtitle: {
+            text: 'subtitle for the column chart'
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rainfall (mm)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Tokyo',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+        }, {
+            name: 'New York',
+            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+        }, {
+            name: 'London',
+            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+        }, {
+            name: 'Berlin',
+            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
         }]
     });
 
@@ -58,7 +124,7 @@
         Invoice n° @Model.InvoiceNumber
     </div>
 </div>
-<div class="row">
+<div class="row alert alert-warning">
     <div class="col-md-2">
         Date Start: @Model.DateStart
     </div>
@@ -68,7 +134,7 @@
 </div>
 <div class="row">
     <div class="col-md-7">
-        <div id="container"></div>
+        <div id="pie-container"></div>
     </div>
     <div class="col-md-5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer turpis erat, fermentum id efficitur rutrum, gravida quis ligula. Phasellus rutrum metus vitae dui molestie, sit amet tempor augue viverra. Phasellus nec lacus ex. Vestibulum posuere luctus metus, in tristique diam pretium a. Aenean efficitur, enim nec tincidunt rhoncus, velit sapien posuere sapien, vitae tincidunt tellus orci a diam. Suspendisse vitae mollis elit. Integer condimentum nisl sit amet nulla rhoncus, at consectetur nulla tempus. Phasellus dictum tempor purus, non aliquam ligula feugiat in. Integer ante elit, dictum sit amet volutpat a, congue vel elit. Aliquam ipsum est, posuere a ligula mollis, posuere semper turpis. Phasellus hendrerit tincidunt pretium. Curabitur consequat elit at laoreet vestibulum. Fusce pellentesque diam varius velit tincidunt, vitae mollis diam vehicula.
@@ -76,6 +142,6 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-
+        <div id="column-container"></div>
     </div>
 </div>

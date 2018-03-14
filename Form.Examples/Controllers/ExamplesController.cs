@@ -65,6 +65,7 @@ namespace Form.Examples.Controllers
 
         public ActionResult ExampleTwoForm()
         {
+            //return the form for the modal.
             return View("_ExampleTwoForm");
         }
 
@@ -164,13 +165,16 @@ namespace Form.Examples.Controllers
         public ActionResult ExampleFive()
         {
             ExampleFiveViewModel model = new ExampleFiveViewModel();
+            //The Init() method add data in the Invoices attribute. The Invoices attribute is rendered as drop down list in the view.
             model.Init();
             return View(model);
         }
-
+        
         [HttpPost]
         public ActionResult ExampleFive(ExampleFiveViewModel model)
         {
+            //gather mockup data for the partial view.
+            model.GetData();
             return PartialView("_ExampleFiveResult", model);
         }
 

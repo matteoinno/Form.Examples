@@ -4,14 +4,17 @@
     ViewBag.Title = "Highcharts form";
 }
 
-<h2>ExampleFive</h2>
-
+<h2>Highcharts form (Ajax form)</h2>
+<!--The HttpMethod show the method type, the UpdateTargetId will contain the partial view returned from the POST, the LoadingElementId contains the element showed during the post.-->
+<!--If you choose a modal as LoadingElementId, the Ajax Form will manage automatically the show and hide operations.-->
 @using (Ajax.BeginForm("ExampleFive", "Examples", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "result", LoadingElementId = "loading-dialog" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>ExampleFiveViewModel</h4>
+        <h4>This is an Ajax Form.</h4>
+        <h4>The Ajax Form is used to mock the "single page" application.</h4>
+        <h4>To render the result on the same page, install the jquery.unobtrosive package.</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -47,9 +50,9 @@
 }
 
 <div class="row">
+    <!--This div will contain the result of the form. The id of this div is defined in the UpdateTargetId option.-->
     <div class="col-md-12" id="result"></div>
 </div>
-<!--I created a custom modal-->
 <!-- Modal -->
 <div class="modal" id="loading-dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
