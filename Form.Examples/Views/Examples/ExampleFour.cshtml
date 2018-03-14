@@ -1,0 +1,44 @@
+﻿@model Form.Examples.Models.ExampleFourViewModel
+
+@{
+    ViewBag.Title = "ExampleFour";
+}
+
+<h2>CKEditor Form</h2>
+
+@using (Html.BeginForm("ExampleFour", "Examples", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Initialize a textarea as ckeditor instance inside a form and pass it to the controller.</h4>
+        <h4><a href="https://ckeditor.com/ckeditor-4/" target="_blank">CKEditor 4</a> is a WYSIWYG editor that allows to manage rich text and HTML.</h4>
+        <h4>I added on top of the _Layout page the CDN for the CKEditor and added the code to initialize the editor in the <strong>example_four.js</strong> javascript (the file can be found at the bottom of this view).</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Html, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!--The CKEditor instance will replace this textarea.-->
+                @Html.TextAreaFor(model => model.Html, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Html, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>
+
+@section Scripts{
+    
+    <script type="text/javascript" src="~/Scripts/example_four.js"></script>
+    
+    }

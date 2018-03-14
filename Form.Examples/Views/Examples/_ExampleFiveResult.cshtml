@@ -1,0 +1,81 @@
+﻿@model Form.Examples.Models.ExampleFiveViewModel
+
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Title for pie chart'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'A',
+                y: 61.41,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'B',
+                y: 19.84
+            }, {
+                name: 'C',
+                y: 18.75
+            }]
+        }]
+    });
+
+</script>
+
+<hr />
+<div class="row">
+    <div class="col-md-4 alert alert-info">
+        Invoice n° @Model.InvoiceNumber
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        Date Start: @Model.DateStart
+    </div>
+    <div class="col-md-2">
+        Date End: @Model.DateEnd
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-7">
+        <div id="container"></div>
+    </div>
+    <div class="col-md-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer turpis erat, fermentum id efficitur rutrum, gravida quis ligula. Phasellus rutrum metus vitae dui molestie, sit amet tempor augue viverra. Phasellus nec lacus ex. Vestibulum posuere luctus metus, in tristique diam pretium a. Aenean efficitur, enim nec tincidunt rhoncus, velit sapien posuere sapien, vitae tincidunt tellus orci a diam. Suspendisse vitae mollis elit. Integer condimentum nisl sit amet nulla rhoncus, at consectetur nulla tempus. Phasellus dictum tempor purus, non aliquam ligula feugiat in. Integer ante elit, dictum sit amet volutpat a, congue vel elit. Aliquam ipsum est, posuere a ligula mollis, posuere semper turpis. Phasellus hendrerit tincidunt pretium. Curabitur consequat elit at laoreet vestibulum. Fusce pellentesque diam varius velit tincidunt, vitae mollis diam vehicula.
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+    </div>
+</div>

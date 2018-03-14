@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Example Three";
+}
+
+<h2>Import file by Request.Files</h2>
+<!--It is very important to set the enctype to "multipart/form-data" to be able to read the file from the controller-->
+@using (Html.BeginForm("ExampleThreeB","Examples", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>Import a file in a folder inside the solution using the Request inside the controller.</h3>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2">File</label>
+            <div class="col-md-10">
+                <input type="file" id="File" name="File" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Import" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>

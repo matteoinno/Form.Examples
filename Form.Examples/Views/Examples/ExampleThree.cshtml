@@ -1,17 +1,17 @@
 ﻿@model Form.Examples.Models.ExampleThreeViewModel
 
 @{
-    ViewBag.Title = "ExampleThree";
+    ViewBag.Title = "Example Three";
 }
 
-<h2>ExampleThree</h2>
-
+<h2>Import file by Model</h2>
+<!--It is very important to set the enctype to "multipart/form-data" to be able to read the file from the controller-->
 @using (Html.BeginForm("ExampleThree","Examples", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ExampleThreeViewModel</h4>
+        <h3>Import a file in a folder inside the solution using a Model.</h3>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -30,5 +30,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "Home")
 </div>

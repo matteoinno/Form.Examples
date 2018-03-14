@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Example one</h2>
+        <h2>Example 1</h2>
         <p>
             Subscription form mockup.
         </p>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <h2>Example Two</h2>
+        <h2>Example 2</h2>
         <p>
             Dialog form mockup.
         </p>
@@ -31,12 +31,33 @@
         </div>
     </div>
     <div class="col-md-4">
-        <h2>Example Three</h2>
+        <h2>Example 3</h2>
         <p>
-            Form with import file.
+            Import file form mockup.
         </p>
         <div class="list-group">
-            @Html.ActionLink("Import file", "ExampleThree", "Examples", null, new { @title = "Import file", @class = "list-group-item list-group-item-action" })
+            @Html.ActionLink("Import file by Model", "ExampleThree", "Examples", null, new { @title = "Import file by Model", @class = "list-group-item list-group-item-action" })
+            @Html.ActionLink("Import file by Request.Files", "ExampleThreeB", "Examples", null, new { @title = "Import file by Request.Files", @class = "list-group-item list-group-item-action" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Example 4</h2>
+        <p>
+            WYSIWYG editor form mockup.
+        </p>
+        <div class="list-group">
+            @Html.ActionLink("CKEditor form", "ExampleFour", "Examples", null, new { @title = "CKEditor form", @class="list-group-item list-group-item-action" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Example 5</h2>
+        <p>
+            Highcharts form mockup.
+        </p>
+        <div class="list-group">
+            @Html.ActionLink("Highcharts form", "ExampleFive", "Examples", null, new { @title = "Highcharts form", @class = "list-group-item list-group-item-action" })
         </div>
     </div>
 </div>

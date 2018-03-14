@@ -108,13 +108,49 @@ namespace Form.Examples.Models
 
     public class ExampleThreeViewModel
     {
+        //The HttpPostedFileBase contains the data of the file to import, such as file name, content type ecc...
         [Required]
         public HttpPostedFileBase File { get; set; }
 
         public void ImportFile()
         {
+            //HttpContext.Current.Server.MapPath("~") -> returns the application root
+            //In the web.config at the application settings "filesPath" it is possible to find the name of the file folder. When the project is published, be aware to add the folder in the deployed website.
+            //the File attribute contains the meta-data and data of the file.
             string filePath = Path.Combine(HttpContext.Current.Server.MapPath("~"), ConfigurationManager.AppSettings["filesPath"], this.File.FileName);
+            //Save the file in the path just built.
             this.File.SaveAs(filePath);
+        }
+
+    }
+
+    public class ExampleFourViewModel
+    {
+        [Required]
+        //The AllowHtml data annotations is important to submit HTML code to a controller.
+        [System.Web.Mvc.AllowHtml]
+        public String Html { get; set; }
+    }
+
+    public class ExampleFiveViewModel
+    {
+        public Int32 InvoiceNumber { get; set; }        
+        public List<System.Web.Mvc.SelectListItem> Invoices { get; set; }
+        public String DateStart { get; set; }
+        public String DateEnd { get; set; }
+
+        public void Init()
+        {
+            this.Invoices = new List<System.Web.Mvc.SelectListItem>();
+            for (int i = 1; i <= 5; i++)
+            {
+                System.Web.Mvc.SelectListItem item = new System.Web.Mvc.SelectListItem()
+                {
+                    Text = String.Format("invoice n° {0}", i.ToString()),
+                    Value = i.ToString()
+                };
+                this.Invoices.Add(item);
+            }
         }
 
     }

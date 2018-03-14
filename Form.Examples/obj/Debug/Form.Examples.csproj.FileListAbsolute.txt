@@ -50,4 +50,3 @@ D:\Progetti\Form.Examples\Form.Examples\obj\Debug\en-US\Form.Examples.resources.
 D:\Progetti\Form.Examples\Form.Examples\obj\Debug\Form.Examples.Views.Examples.App_LocalResources.ExampleTwo.resources
 D:\Progetti\Form.Examples\Form.Examples\obj\Debug\Form.Examples.Views.Examples.App_LocalResources.ExampleTwo.en-US.resources
 D:\Progetti\Form.Examples\Form.Examples\obj\Debug\Form.Examples.Views.Examples.App_LocalResources.ExampleTwo.it-IT.resources
-D:\Progetti\Form.Examples\Form.Examples\obj\Debug\Form.Examples.csprojResolveAssemblyReference.cache

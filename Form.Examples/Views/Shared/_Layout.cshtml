@@ -6,6 +6,14 @@
     <title>@ViewBag.Title - Form Examples</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <!--CDN for CKEditor-->
+    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+    <!--CDN for highcharts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://code.highcharts.com/modules/oldie.js"></script>
+    <![endif]-->
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -22,7 +30,7 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Example One
+                            Example 1
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
@@ -36,7 +44,7 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Example Two
+                            Example 2
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
@@ -47,11 +55,34 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Example Three
+                            Example 3
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Import file", "ExampleThree", "Examples", null, new { @title = "Import file" })</li>
+                            <li>@Html.ActionLink("Import file by Model", "ExampleThree", "Examples", null, new { @title = "Import file by Model" })</li>
+                            <li>@Html.ActionLink("Import file by Request.Files", "ExampleThreeB", "Examples", null, new { @title = "Import file by Request.Files" })</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Example 4
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("CKEditor form", "ExampleFour", "Examples", null, new { @title = "CKEditor form" })</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Example 5
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Highcharts form", "ExampleFive", "Examples", null, new { @title = "Highcharts form" })</li>
                         </ul>
                     </li>
                 </ul>
